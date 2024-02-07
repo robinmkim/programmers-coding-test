@@ -29,11 +29,13 @@ public class MarathonRunner {
         }
 
         for (String e:completion) {
-            System.out.println(e + ": " + participantMap.get(e));
-
             participantMap.put(e, participantMap.get(e) - 1);
-            if (participantMap.containsValue(1)) {
-                System.out.println(answer);
+        }
+
+        for (String e:participant){
+            if(participantMap.get(e) == 1){
+                answer = e;
+                break;
             }
         }
 
@@ -41,7 +43,7 @@ public class MarathonRunner {
     }
 
 
-    public static void main(String arg[]){
+    public static void main(String[] args){
         String[] participant = {"leo", "kiki", "eden"};
         String[] completion = {"kiki", "eden"};
         String answer = MarathonRunner.solution(participant, completion);
